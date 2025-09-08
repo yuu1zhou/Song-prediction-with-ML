@@ -4,8 +4,14 @@ This is a personal machine learning practice project focused on the music indust
 
 [Project Report Link](https://yuu1zhou.github.io/Song-prediction-with-ML/)
 
-A snapshot of the project:
+Snapshots of the project:
+
+<p align="center">
+  <img src="https://github.com/yuu1zhou/Song-prediction-with-ML/blob/main/images/output_2.png" alt="image" height="200px">
+  <img src="https://github.com/yuu1zhou/Song-prediction-with-ML/blob/main/images/output.png" alt="image" height="200px">
+  <img src="https://github.com/yuu1zhou/Song-prediction-with-ML/blob/main/images/output_1.png" alt="image" height="200px">
+</p>
 
 ### About Author
 **Yuzhou Fu**  
-M.S. in Statistics @ UIUC | Aspiring Data Scientist  
+M.S. Student in Statistics @ UIUC
