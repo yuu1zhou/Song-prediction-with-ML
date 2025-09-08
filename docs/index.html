@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Report</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7517,8 +7517,20 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 style="text-align: center;">Million Song Dataset Song Popularity Prediction</h1>
-<h3 style="text-align: center;">Yuzhou Fu</h3>
+<h1 style="text-align: center;">Million Song Dataset -- Song Popularity Prediction</h1>
+<h3 style="text-align: center;">Author: Yuzhou Fu</h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34eff961">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h1><p>This project is based on a subset of the <a href="http://millionsongdataset.com/">Million Song Dataset</a>, which contains audio features and metadata for 10,000 songs. We evaluated both classical and popular algorithms on regression and classification tasks to predict song popularity. After comparing model performance, we identified the best-performing approaches and further enhanced them through additional feature engineering using the K-Means algorithm on the audio features.</p>
+<p><small><em><strong>Note on the dataset:</strong> The raw dataset is stored in HDF5 format. The processing details of converting it to CSV files are omitted here for brevity and can be found <a href="https://github.com/yuu1zhou/Song-prediction-with-ML/blob/main/data_reading.ipynb">here</a>.</em></small></p>
 </div>
 </div>
 </div>
@@ -7530,40 +7542,33 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
-<li><p><a href="#section1">1. Split training and testing sets</a></p>
-</li>
-<li><p><a href="#section2">2. EDA</a></p>
-</li>
-<li><p><a href="#section3">3. Data Preparation</a></p>
-<ul>
+<li><a href="#section1">1. Split training and testing sets</a></li>
+<li><a href="#section2">2. EDA</a></li>
+<li><a href="#section3">3. Data Preparation</a><ul>
 <li><a href="#section5">NA Value</a></li>
 <li><a href="#section6">Bag-of-words Matrix</a></li>
 <li><a href="#section7">Encoding Categorical Variable</a></li>
 <li><a href="#section8">Scaling</a></li>
 </ul>
 </li>
-<li><p><a href="#section4">4. Feature Selection</a></p>
-<ul>
+<li><a href="#section4">4. Feature Selection</a><ul>
 <li><a href="#section9">LASSO</a></li>
 <li><a href="#section10">Forward Step-Wise</a></li>
 </ul>
 </li>
-<li><p><a href="#section11">5. Model Fitting</a></p>
-<ul>
+<li><a href="#section11">5. Model Fitting</a><ul>
 <li><a href="#section12">Fitting with LASSO selected design matrix</a></li>
 <li><a href="#section13">Fitting with foward-stepwise matrix</a></li>
 <li><a href="#section14">Summarizing Table</a></li>
 </ul>
 </li>
-<li><p><a href="#section15">6. Incorperate unsupervised learning technique</a></p>
-<ul>
+<li><a href="#section15">6. Incorperate unsupervised learning technique</a><ul>
 <li><a href="#section16">Feature Selection</a></li>
 <li><a href="#section17">Model Fitting</a></li>
 <li><a href="#section18">Summarizing Table</a></li>
 </ul>
 </li>
-<li><p><a href="#section19">7. Conclusion</a></p>
-</li>
+<li><a href="#section19">7. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -8835,7 +8840,7 @@ dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Text_Token_transformer_df</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span> <span class="c1"># create bag-of-words matrix</span>
@@ -8859,7 +8864,6 @@ dtype: object</pre>
         <span class="n">X_df</span> <span class="o">=</span> <span class="n">X_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="n">index_less_then_2</span><span class="p">]</span>
         
         <span class="k">return</span> <span class="n">X_df</span>
-        
 </pre></div>
 </div>
 </div>
@@ -13736,7 +13740,7 @@ Light GBM classifier cv AUC: 0.8598329232817413
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="7.-Conclusion">7. Conclusion<a class="anchor-link" href="#7.-Conclusion">¶</a></h1><p>In this study, we compared the performance of multiple machine learning algorithms on both regression and classification tasks. Without incorporating additional feature engineering, ensemble learning methods such as Random Forest, XGBoost, and LightGBM consistently outperformed linear models, logistic regression, and SVM across most metrics. While the best-performing model varied slightly between tasks and metrics (e.g., Random Forest in regression, LightGBM in classification accuracy, XGBoost in AUC), ensemble methods proved to be the most robust choices overall. Models trained on the forward-stepwise–selected matrix generally performed better than those trained on the LASSO-selected matrix, likely due to the preservation of more informative features.</p>
+<h1 id="7.-Conclusion">7. Conclusion<a class="anchor-link" href="#7.-Conclusion">¶</a></h1><p>In this project, we compared the performance of multiple machine learning algorithms on both regression and classification tasks. Without incorporating additional feature engineering, ensemble learning methods such as Random Forest, XGBoost, and LightGBM consistently outperformed linear models, logistic regression, and SVM across most metrics. While the best-performing model varied slightly between tasks and metrics (e.g., Random Forest in regression, LightGBM in classification accuracy, XGBoost in AUC), ensemble methods proved to be the most robust choices overall. Models trained on the forward-stepwise–selected matrix generally performed better than those trained on the LASSO-selected matrix, likely due to the preservation of more informative features.</p>
 <p>Then we further investigated whether incorporating clustering-derived features could enhance predictive performance. For regression tasks, applying K-Means clustering provided additional gains for most models, particularly when using the forward-stepwise–selected matrix. These improvements were reflected in both lower MSE and higher $R^2$, although not all models benefited equally (e.g., Random Forest showed limited improvement). In contrast, for classification tasks, clustering mainly improved precision but often at the cost of reduced recall. XGBoost stood out as an exception, showing improvements in both accuracy and recall under certain design matrices, while other models exhibited mixed or minimal changes. Moreover, the clustering effect was more pronounced for LASSO-selected matrices, whereas models trained on forward-stepwise–selected matrices saw fewer benefits and stronger trade-offs.</p>
 </div>
 </div>
